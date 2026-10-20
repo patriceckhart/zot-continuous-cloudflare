@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "zot-continuous",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api", "/ws"]
+  },
+  "containers": [
+    {
+      "class_name": "ZotContainer",
+      "image": "./container/Dockerfile",
+      "image_build_context": "./container",
+      "instance_type": "standard-1",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "ZOT_CONTAINER", "class_name": "ZotContainer" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["ZotContainer"] }],
+  "vars": {
+    "ZOT_WEB_ORIGIN": "https://web.zot.sh",
+    "ZOT_PROVIDER": "anthropic",
+    "ZOT_MODEL": "claude-sonnet-4-6",
+    "ZOT_TOOLS": "read,glob",
+    "ZOT_STORE_NAME": "main",
+    "ZOT_INSTANCE_NAME": "zot-continuous",
+    "ZOT_SLEEP_AFTER_SECONDS": "1800",
+    "ZOT_POSTGRES_TRUST_REMOTE_DURABILITY": "false",
+    "GIT_BRANCH": "main",
+    "GIT_ALLOW_PUSH": "false"
+  },
+  "observability": { "enabled": true }
+}

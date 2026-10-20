@@ -1,0 +1,22 @@
+# Secrets. Set each one in production with: bunx wrangler secret put NAME
+# Non-secret settings live in "vars" in wrangler.jsonc.
+
+# Use two different randomly generated values, at least 32 characters each.
+CONTROL_API_TOKEN=
+ZOT_HOST_TOKEN=
+
+# Database state survives container restarts. Use a dedicated database and store.
+ZOT_CONTINUOUS_POSTGRES_DSN=postgresql://user:password@example.neon.tech/zot?sslmode=verify-full
+
+# Set the key for the provider in ZOT_PROVIDER. Leave the other empty.
+ANTHROPIC_API_KEY=
+OPENAI_API_KEY=
+
+# Optional subscription credentials instead of an API key. The JSON is the
+# "oauth" object from your local zot auth.json, not the whole file.
+CLAUDE_OAUTH_JSON=
+CODEX_OAUTH_JSON=
+
+# Optional GitHub repository access.
+GIT_REPOSITORY=
+GITHUB_TOKEN=

@@ -1,0 +1,21 @@
+{
+  "name": "zot-continuous-cloudflare",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "wrangler types --env-file .dev.vars.example --check && tsc --noEmit",
+    "types": "wrangler types",
+    "test": "bun test tests/*.test.ts",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "0.3.7"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3",
+    "typescript": "^5.9.0",
+    "wrangler": "4.151.3"
+  }
+}
