@@ -1,8 +1,8 @@
 # Cloudflare Containers run linux/amd64 images.
 FROM --platform=linux/amd64 node:24-bookworm-slim
 
-ARG ZOT_VERSION=0.4.37
-ARG ZOT_ARCHIVE_SHA256=d9d078df3fb28fc58716aa55c6d6220154ec3e6c7a7ca661c578e433be9f6aa4
+ARG ZOT_VERSION=0.4.41
+ARG ZOT_ARCHIVE_SHA256=61941c064dea2608a20993d3496c219008a07479a0d0f4db3fe278e0649c6135
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends ca-certificates curl git \
